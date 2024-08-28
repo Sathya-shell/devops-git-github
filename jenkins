@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Example: run a shell script
+                sh 'make'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Example: run tests
+                sh 'make test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Example: deploy to a server
+                sh 'make deploy'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up...'
+            // Example: cleanup actions
+            sh 'make clean'
+        }
+        success {
+            echo 'Pipeline succeeded.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
+
