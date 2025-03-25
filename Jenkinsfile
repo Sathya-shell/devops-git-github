@@ -1,16 +1,3 @@
-
-
-
-
-satya jenkinsfile
-
-
-
-
-FROM ubuntu
-
-CMD mkdir dir
-    cd dir
 pipeline {
     agent any 
 
